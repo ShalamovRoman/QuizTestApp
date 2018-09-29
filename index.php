@@ -2,6 +2,13 @@
 
 ini_set("display_errors", 1);
 error_reporting(-1);
+require_once 'php/config.php';
+require_once 'php/functions.php';
+
+//List of tests
+$tests = get_tests();
+
+//print_arr($tests);
 
 ?>
 <!DOCTYPE html>
@@ -12,7 +19,20 @@ error_reporting(-1);
 </head>
 
 <body>
+	
+<div class="wrap">
+	
+<?php if( $tests ): ?>
+	<h3>Варианты тестов</h3>
+	<?php foreach($tests as $test): ?>
+		<p><a href="?test=<?=$test['id']?>"><?=$test['test_name']?></a></p>
+	<?php endforeach; ?>
 
-<p> Wassup niggas </p>
+<?php else: // $tests ?>
+	<h3>Нет тестов</h3>
+<?php endif; // $tests ?>
+
+</div> <!-- .wrap -->
 
 </body>
+</html>
