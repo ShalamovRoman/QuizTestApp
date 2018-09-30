@@ -14,6 +14,7 @@
     opacity:1;
   }
   &__inner {
+    z-index:1;
     position:absolute;
     box-sizing: border-box;
     padding:60px;
@@ -27,7 +28,6 @@
   &__close {
     cursor:pointer;
     position:absolute;
-    z-index:1;
     top:0;
     right:0;
     width:40px;
@@ -35,7 +35,7 @@
     &:before,&:after {
       position:absolute;
       content:"";
-      height:2px;
+      height:3px;
       width:30px;
       left:50%;
       top:50%;
