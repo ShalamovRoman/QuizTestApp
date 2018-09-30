@@ -1,0 +1,21 @@
+.test {
+  counter-reset: num;
+  &__tab {
+    height:100%;
+  }
+  &__question {
+    counter-increment: num;
+    display:flex;
+    &:before {
+      display:block;
+      content:'#'counter(num);
+      font-size:120px;
+      line-height: 120px;
+      font-weight: 600;
+    }
+  }
+  &__description {
+    padding:15px 0 15px 60px;
+    font-size:18px;
+  }
+}
