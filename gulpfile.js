@@ -29,7 +29,7 @@ var path = {
     src: {
         html: 'src/*.html',
         js: 'src/js/*.js',
-        less: 'src/less/*.less',
+        less: 'src/less/template.less',
         img: 'src/img/**/*.*',
         uikit: {
           js: 'src/uikit/js/**/*.js',
