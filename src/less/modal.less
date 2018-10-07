@@ -1,5 +1,4 @@
 .modal {
-  background-color:rgba(0,0,0,0.5);
   position:absolute;
   z-index:999;
   top:0;
@@ -7,11 +6,12 @@
   right:0;
   bottom:0;
   display:none;
-  opacity:0;
+  background-color:rgba(0,0,0,0);
   transition:all 0.5s;
   &.js-active {
+    background-color:rgba(0,0,0,0.5);
     display:block;
-    opacity:1;
+    transition: all 0.5s;
   }
   &__inner {
     z-index:1;
@@ -28,8 +28,8 @@
   &__close {
     cursor:pointer;
     position:absolute;
-    top:0;
-    right:0;
+    top:15px;
+    right:15px;
     width:40px;
     height:40px;
     &:before,&:after {
