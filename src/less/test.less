@@ -1,10 +1,26 @@
 .test {
   counter-reset: num;
-  &__tab {
+  position:relative;
+  height:100%;
+  &__form {
     height:100%;
   }
-  &__question {
+  &__tab {
     counter-increment: num;
+    z-index:-1;
+    opacity:0;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    &.js-active {
+      z-index:0;
+      opacity:1;
+      animation: appear 0.5s;
+    }
+  }
+  &__question {
     display:flex;
     &:before {
       display:block;
@@ -17,5 +33,101 @@
   &__description {
     padding:15px 0 15px 60px;
     font-size:18px;
+  }
+  &__answers {
+    padding-top:15px;
+    font-size:18px;
+    padding-right: 145px;
+    position:relative;
+  }
+  &__answer {
+    &:not(:first-child) {
+      margin-top:15px;
+    }
+  }
+  &__next {
+    position:absolute;
+    right:0;
+    bottom:0;
+    display:inline-block;
+    cursor:pointer;
+    text-align: center;
+    line-height: 45px;
+    padding:0 45px;
+    border-radius: 10px;
+    background-color:@main-color;
+    color:white;
+    border:2px solid @main-color;
+    font-weight: 600;;
+    transition:all 0.2s;
+    transform:translate(30px,30px);
+    &:hover {
+      color:@main-color;
+      background-color:transparent;
+    }
+  }
+}
+
+.form {
+  &__element {
+    line-height: 24px;
+    &_radio {
+      input {
+        display:none;
+      }
+      label {
+        display:inline-block;
+        transition:all 0.2s;
+        padding-left: 45px;
+        position:relative;
+        &:before {
+          content:"";
+          position:absolute;
+          top:0;
+          left:0;
+          box-sizing: border-box;
+          height:24px;
+          width:24px;
+          border:4px solid @dark-color;
+          border-radius: 5px;
+          transition:all 0.2s;
+        }
+        &:after {
+          content:"";
+          position:absolute;
+          left:12px;
+          top:10px;
+          height:4px;
+          width:8px;
+          border-left: 4px solid transparent;
+          border-bottom:4px solid transparent;
+          transition:all 0.2s;
+          transform:translate(-50%,-50%) rotate(-45deg);
+        }
+      }
+      input:checked~label {
+        &:before {
+          border-color:@main-color;
+        }
+        &:after {
+          border-color:@main-color;
+        }
+      }
+    }
+    &_text {
+      input {
+        box-sizing: border-box;
+        width:100%;
+        border-radius: 5px;
+        border:2px solid @dark-color;
+        color:@dark-color;
+        outline:none;
+        display:inline-block;
+        font-family: "Open Sans",arial,sans-serif;
+        padding:0 30px;
+        font-size:18px;
+        line-height: 45px;
+      }
+    }
   }
 }
