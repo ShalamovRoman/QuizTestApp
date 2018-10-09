@@ -1,3 +1,12 @@
+@keyframes appear {
+  from {
+    opacity:0;
+  }
+  to {
+    opacity:1;
+  }
+}
+
 .modal {
   position:absolute;
   z-index:999;
@@ -6,12 +15,10 @@
   right:0;
   bottom:0;
   display:none;
-  background-color:rgba(0,0,0,0);
-  transition:all 0.5s;
+  background-color:rgba(0,0,0,0.5);
   &.js-active {
-    background-color:rgba(0,0,0,0.5);
     display:block;
-    transition: all 0.5s;
+    animation: appear 0.2s;
   }
   &__inner {
     z-index:1;
@@ -28,10 +35,10 @@
   &__close {
     cursor:pointer;
     position:absolute;
-    top:15px;
-    right:15px;
-    width:40px;
-    height:40px;
+    top:30px;
+    right:30px;
+    width:30px;
+    height:30px;
     &:before,&:after {
       position:absolute;
       content:"";
