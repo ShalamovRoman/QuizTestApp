@@ -7,13 +7,11 @@ $(document).ready(function(){
     $(this).closest('.modal').removeClass('js-active');
     $(this).closest('.modal').find('.test__tab').removeClass('js-active').first().addClass('js-active');
   });
-  $('.test').each(function() {
-    var test = $(this);
-    var current = test.find('.test__tab.js-active');
-    var next = test.find('.test__tab.js-active+.test__tab');
-    current.find('.test__next').click(function() {
-      current.removeClass('js-active');
-      next.addClass('js-active');
-    });
+  $('.test__next').click(function(){
+    var tmp = $(this).closest('.test__tab');
+    if (tmp.next().length!=0) {
+      tmp.removeClass('js-active');
+      tmp.next().addClass('js-active');
+    }
   });
 });
